@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LandingService } from './landing.service';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
-import { data } from './data';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-landing',
@@ -10,16 +10,25 @@ import { data } from './data';
 })
 export class LandingComponent implements OnInit {
 
-  usersData: string[];
+  usersData: number;
   responData: string[];
-  paginationReturnData: any;
-  dataUsers = data[0].users;
-  dataUsersLength = data[0].users.length;
-  finalDataUsers: any;
+  paginationReturnData: string[];
+  searchUser;
+
+  regexEmail = '[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[a-z]{2,3}';
 
   constructor(
-    private landingService: LandingService
-  ) { }
+    private landingService: LandingService,
+    private fb: FormBuilder
+  ) {
+  }
+
+  createData = this.fb.group({
+    name: ['', Validators.required],
+    email: ['', Validators.required],
+    age: ['', Validators.required],
+    city: ['', Validators.required],
+  })
 
   ngOnInit(): void {
     this.landingService.getFullData().subscribe(resUsers => {
@@ -27,15 +36,33 @@ export class LandingComponent implements OnInit {
       this.responData = resUsers;
       this.paginationReturnData = resUsers.slice(0, 10);
     })
-    this.finalDataUsers = this.dataUsers.slice(0, 10)
-    
   }
 
   pageChanged(e: PageChangedEvent):void {
     const startItem = (e.page - 1) * e.itemsPerPage;
     const endItem = e.page * e.itemsPerPage;
-    this.finalDataUsers = this.dataUsers.slice(startItem, endItem)
-    
+    this.paginationReturnData = this.responData.slice(startItem, endItem)
+  }
+
+  searchByUser(e) {
+    setTimeout(() => {
+      
+    }, 1000);
+  }
+
+  onSubmit() {
+    const dataUsers = {
+      id: this.usersData +1,
+      name: this.createData.value.name,
+      email: this.createData.value.email,
+      age: this.createData.value.age,
+      city: this.createData.value.city,
+    }
+    this.landingService.sendDataToDb(dataUsers).subscribe(res => {
+      console.log(res);
+    }, (error) => {
+      console.log(error);
+    })
   }
 
 }
