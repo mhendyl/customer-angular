@@ -18,15 +18,15 @@ export class LandingComponent implements OnInit {
   finalDataUsers: any;
 
   constructor(
-    // private landingService: LandingService
+    private landingService: LandingService
   ) { }
 
   ngOnInit(): void {
-    // this.landingService.getFullData().subscribe(resUsers => {
-    //   this.usersData = resUsers.map((v: string, i: number) => {}).length;
-    //   this.responData = resUsers;
-    //   this.paginationReturnData = resUsers.slice(0, 10);
-    // })
+    this.landingService.getFullData().subscribe(resUsers => {
+      this.usersData = resUsers.map((v: string, i: number) => {}).length;
+      this.responData = resUsers;
+      this.paginationReturnData = resUsers.slice(0, 10);
+    })
     this.finalDataUsers = this.dataUsers.slice(0, 10)
     
   }
