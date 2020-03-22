@@ -1,0 +1,37 @@
+<div class="container-fluid outer-landing">
+  <h4 class="title"><i class="fa fa-user"></i> Customers</h4>
+  <div class="tab-session">
+    <tabset>
+      <tab heading="Card View" id="tab1">
+        <div class="row outer-content">
+          <div class="col-3" *ngFor="let data of paginationReturnData">
+            <div class="card m-3 content-card">
+              <div class="card-body">
+                <h5 class="card-title">{{data.name}}</h5>
+                <div class="d-inline-flex">
+                  <div class="d-flex image-wrapper">
+                    <img src="assets/img/dummy-image-users.png" alt="">
+                  </div>
+                  <div class="d-flex data-customer">
+                    <span class="card-text d-block">{{data.city}}<br> 
+                    <a href="" class="d-block">View Order</a></span>
+                    <br/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </tab>
+      <tab heading="List View">Basic content 1</tab>
+      <tab heading="New Customers">Basic content 2</tab>
+    </tabset>
+    <div class="input-group search-customer">
+      <label for="filter">Filter :</label>
+      <input type="text" class="form-control" placeholder="Search">
+    </div>
+  </div>
+  <div class="pagination-session">
+    <pagination [totalItems]="usersData" (pageChanged)="pageChanged($event)"></pagination>
+  </div>
+</div>
