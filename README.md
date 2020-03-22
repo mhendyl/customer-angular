@@ -1,7 +1,3 @@
-DATABASE OF CUSTOMER
-
--> https://github.com/mhendyl/data-customer
-
 # Customer
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
