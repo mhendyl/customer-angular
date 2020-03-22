@@ -1,0 +1,104 @@
+@import '../../../assets/css/variable';
+
+.outer-landing{
+  .title{
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  .tab-session{
+    position: relative;
+    ::ng-deep tabset{
+      .nav-tabs{
+        border-bottom: none;
+        .nav-item{
+          .nav-link{
+            color: $basic-black-1;
+            &.active{
+              border: none;
+              color: black;
+            }
+          }
+          &:nth-child(1){
+            .nav-link{
+              span{
+                &::before{
+                  content: '\f2c3';
+                  font-family: FontAwesome;
+                  margin-right: 10px;
+                }
+              }
+            }
+          }
+          &:nth-child(2){
+            .nav-link{
+              span{
+                &::before{
+                  content: '\f0c9';
+                  font-family: FontAwesome;
+                  margin-right: 10px;
+                }
+              }
+            }
+          }
+          &:nth-child(3){
+            .nav-link{
+              span{
+                &::before{
+                  content: '\f055';
+                  font-family: FontAwesome;
+                  margin-right: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .tab-content{
+        .tab-pane{
+          .outer-content{
+            .content-card{
+              .card-body{
+                .card-title{
+                  margin-left: -1.25rem;
+                  margin-top: -1.25rem;
+                  margin-right: -1.25rem;
+                  background-color: $basic-blue;
+                  color: white;
+                  padding: .5rem 1rem;
+                  &::after{
+                    content: "\f044";
+                    font-family: FontAwesome;
+                    float: right;
+                  }
+                }
+                .image-wrapper{
+                  max-width: 4rem;
+                  img{
+                    width: 100%;
+                  }
+                }
+                .data-customer{
+
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .search-customer{
+      position: absolute;
+      width: 15rem;
+      right: 15px;
+      top: -10px;
+      label{
+        display: block;
+        position: absolute;
+        top: -30px;
+      }
+      input{
+        display: block;
+      }
+    }
+  }
+}

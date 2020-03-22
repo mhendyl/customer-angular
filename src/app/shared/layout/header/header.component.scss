@@ -1,0 +1,21 @@
+@import '../../../../assets/css/variable';
+
+.navbar{
+  background-color: $basic-blue;
+  .navbar-brand{
+    .brand{
+      color: white;
+      margin-left: 30px;
+    }
+    .link{
+      color: white;
+      margin-left: 40px;
+      padding: 3px 10px;
+      &.active{
+        color: $basic-black-1;
+        background-color: white;
+        border-radius: 8px;
+      }
+    }
+  }
+}
