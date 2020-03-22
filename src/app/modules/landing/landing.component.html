@@ -4,7 +4,7 @@
     <tabset>
       <tab heading="Card View" id="tab1">
         <div class="row outer-content">
-          <div class="col-3" *ngFor="let data of paginationReturnData">
+          <div class="col-3" *ngFor="let data of finalDataUsers">
             <div class="card m-3 content-card">
               <div class="card-body">
                 <h5 class="card-title">{{data.name}}</h5>
@@ -32,6 +32,6 @@
     </div>
   </div>
   <div class="pagination-session">
-    <pagination [totalItems]="usersData" (pageChanged)="pageChanged($event)"></pagination>
+    <pagination [totalItems]="dataUsersLength" (pageChanged)="pageChanged($event)"></pagination>
   </div>
 </div>
