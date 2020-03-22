@@ -11,6 +11,9 @@ import { AboutComponent } from './modules/about/about.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { HttpClientModule } from '@angular/common/http';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,11 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     AppRoutingModule,
     TabsModule.forRoot(),
     HttpClientModule,
-    PaginationModule.forRoot()
+    PaginationModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
+    ModalModule.forRoot(),
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
