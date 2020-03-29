@@ -42,8 +42,6 @@ export class ListComponent implements OnInit {
         this.dataUsers = res.users.data;
         this.userDataLength = res.users.data.map(() => {}).length;
         this.paginationReturnData = res.users.data.slice(0, 10);
-        console.log('data User', this.dataUsers, ' | data length', this.userDataLength);
-      console.log('pag', this.paginationReturnData);
       }
     })
   }
@@ -55,7 +53,11 @@ export class ListComponent implements OnInit {
   }
 
   deleteUser(id) {
-    this.landingService.deleteDataUser(id).subscribe();
+    this.landingService.deleteDataUser(id).subscribe(res => {
+      if (res) {
+        window.location.reload();
+      }
+    });
   }
 
 }

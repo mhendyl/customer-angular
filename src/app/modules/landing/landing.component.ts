@@ -32,26 +32,21 @@ export class LandingComponent implements OnInit {
   })
 
   ngOnInit(): void {
-    this.loadData();
+    // this.loadData();
   }
 
-  loadData() {
-    this.landingService.getFullData().subscribe(resUsers => {
-      this.usersData = resUsers.map((v: string, i: number) => {}).length;
-      this.responData = resUsers;
-      this.paginationReturnData = resUsers.slice(0, 10);
-    })
-  }
+  // loadData() {
+  //   this.landingService.getFullData().subscribe(resUsers => {
+  //     this.usersData = resUsers.map((v: string, i: number) => {}).length;
+  //     this.responData = resUsers;
+  //     this.paginationReturnData = resUsers.slice(0, 10);
+  //   })
+  // }
 
   pageChanged(e: PageChangedEvent):void {
     const startItem = (e.page - 1) * e.itemsPerPage;
     const endItem = e.page * e.itemsPerPage;
     this.paginationReturnData = this.responData.slice(startItem, endItem)
-  }
-
-  deleteUser(id) {
-    this.landingService.deleteDataUser(id).subscribe();
-    this.loadData();
   }
 
   onSubmit() {

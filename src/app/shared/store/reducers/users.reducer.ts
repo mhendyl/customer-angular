@@ -22,7 +22,6 @@ export function reducer(state = initialState, action: fromUsers.UsersAction): Us
       }
       break;
     case fromUsers.LOAD_USERS_SUCCESS: {
-      console.log('acton', action.payload);
       const data = action.payload;
       
         return {
