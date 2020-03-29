@@ -42,8 +42,6 @@ export class ListComponent implements OnInit {
         this.dataUsers = res.users.data;
         this.userDataLength = res.users.data.map(() => {}).length;
         this.paginationReturnData = res.users.data.slice(0, 10);
-        console.log('data User', this.dataUsers, ' | data length', this.userDataLength);
-      console.log('pag', this.paginationReturnData);
       }
     })
   }
