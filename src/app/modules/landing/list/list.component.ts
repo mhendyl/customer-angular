@@ -46,6 +46,10 @@ export class ListComponent implements OnInit {
     })
   }
 
+  goToUpdate(id) {
+    window.location.href = '/update/' + id.id;
+  }
+
   pageChanged(e: PageChangedEvent):void {
     const startItem = (e.page - 1) * e.itemsPerPage;
     const endItem = e.page * e.itemsPerPage;
