@@ -1,0 +1,21 @@
+<div class="container">
+  <form [formGroup]="createData">
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control" value="{{nameValue}}" placeholder="Enter Name" formControlName="name">
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" class="form-control" value="{{emailValue}}" placeholder="Enter Email" formControlName="email">
+    </div>
+    <div class="form-group">
+      <label>Age</label>
+      <input type="number" class="form-control" value="{{ageValue}}" placeholder="Enter Age" formControlName="age">
+    </div>
+    <div class="form-group">
+      <label>City</label>
+      <input type="text" class="form-control" value="{{cityValue}}"  placeholder="Enter City" formControlName="city">
+    </div>
+  </form>
+  <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
+</div>

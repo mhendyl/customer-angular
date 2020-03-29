@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, Input } from '@angular/core';
 import { LandingService } from './landing.service';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { FormBuilder, Validators } from '@angular/forms';
+import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-landing',
@@ -31,6 +32,10 @@ export class LandingComponent implements OnInit {
   })
 
   ngOnInit(): void {
+    this.loadData();
+  }
+
+  loadData() {
     this.landingService.getFullData().subscribe(resUsers => {
       this.usersData = resUsers.map((v: string, i: number) => {}).length;
       this.responData = resUsers;
@@ -44,10 +49,9 @@ export class LandingComponent implements OnInit {
     this.paginationReturnData = this.responData.slice(startItem, endItem)
   }
 
-  searchByUser(e) {
-    setTimeout(() => {
-      
-    }, 1000);
+  deleteUser(id) {
+    this.landingService.deleteDataUser(id).subscribe();
+    this.loadData();
   }
 
   onSubmit() {

@@ -14,6 +14,13 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { CardComponent } from './modules/landing/card/card.component';
+import { ListComponent } from './modules/landing/list/list.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { reducers, effect } from './shared/store';
+import { UpdateComponent } from './modules/update/update.component';
+import { CreateComponent } from './modules/landing/create/create.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +29,11 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     LandingComponent,
     HeaderComponent,
     FooterComponent,
-    AboutComponent
+    AboutComponent,
+    CardComponent,
+    ListComponent,
+    UpdateComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +44,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     FormsModule,
     ReactiveFormsModule,
     ModalModule.forRoot(),
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    StoreModule.forRoot({}),
+    StoreModule.forFeature('customer', reducers),
+    EffectsModule.forRoot(effect)
   ],
   providers: [],
   bootstrap: [AppComponent]
