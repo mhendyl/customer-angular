@@ -5,7 +5,7 @@
         <img src="assets/img/dummy-image-users.png" alt="">
       </div>
       <div class="col-7 content-card">
-        <span class="name d-block">{{data.name}}</span>
+        <span class="name d-block"><a (click)="goToUpdate(data)">{{data.name}}</a></span>
         <span class="city d-block">{{data.city}}</span>
       </div>
       <div class="col-4 content-card">
