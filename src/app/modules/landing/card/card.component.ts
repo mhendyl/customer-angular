@@ -57,7 +57,11 @@ export class CardComponent implements OnInit {
   }
 
   deleteUser(id) {
-    this.landingService.deleteDataUser(id).subscribe();
+    this.landingService.deleteDataUser(id).subscribe(res => {
+      if (res) {
+        window.location.reload();
+      }
+    });
   }
 
 }

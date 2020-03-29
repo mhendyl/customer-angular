@@ -49,11 +49,6 @@ export class LandingComponent implements OnInit {
     this.paginationReturnData = this.responData.slice(startItem, endItem)
   }
 
-  deleteUser(id) {
-    this.landingService.deleteDataUser(id).subscribe();
-    this.loadData();
-  }
-
   onSubmit() {
     const dataUsers = {
       id: this.usersData +1,
