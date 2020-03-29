@@ -26,11 +26,23 @@ export class LandingService {
     return this.httpClient.get<any>(environment.baseUrl + apiUsers)
   }
 
+  getDataById(id){
+    return this.httpClient.get<any>(environment.baseUrl + apiUsers + '/' + id);
+  }
+
   sendDataToDb(data) {
     return this.httpClient.post<userData>(environment.baseUrl + apiUsers, data);
   }
 
   searchDataByName(name: string) {
     return this.httpClient.post<any>(environment.baseUrl + searchUsers, name);
+  }
+
+  deleteDataUser(id) {
+    return this.httpClient.delete<number>(environment.baseUrl + apiUsers + '/' + id);
+  }
+
+  updateData(data, id) {
+    return this.httpClient.put<userData>(environment.baseUrl + apiUsers + '/' + id, data); 
   }
 }

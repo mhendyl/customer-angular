@@ -3,120 +3,13 @@
   <div class="tab-session">
     <tabset>
       <tab heading="Card View" id="tab1">
-        <div class="row outer-content">
-          <div class="col-3" *ngFor="let data of paginationReturnData | filter:searchUser">
-            <div class="card m-3 content-card">
-              <div class="card-body">
-                <h5 class="card-title">{{data.name}}</h5>
-                <div class="d-inline-flex">
-                  <div class="d-flex image-wrapper">
-                    <img src="assets/img/dummy-image-users.png" alt="">
-                  </div>
-                  <div class="d-flex data-customer">
-                    <span class="card-text d-block">{{data.city}}<br> 
-                    <a class="d-block" type="button" (click)="lgModal.show()">View Order</a></span>
-                    <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1"
-                        role="dialog" aria-labelledby="dialog-sizes-name1">
-                      <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h4 id="dialog-sizes-name1" class="modal-title pull-left">Cart</h4>
-                            <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            <div class="row">
-                              <div class="col-6">
-                                <img src="assets/img/image-phone.png" alt="" class="w-100">
-                              </div>
-                              <div class="col-6">
-                                <span class="goods d-block">{{data.cart[0].goods}}</span>
-                                <input type="text" class="form-control" value="{{data.cart[0].total}}" readonly>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <br/>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="pagination-session">
-          <pagination [totalItems]="usersData" (pageChanged)="pageChanged($event)"></pagination>
-        </div>
+        <app-card [searchUser]="searchUser"></app-card>
       </tab>
       <tab heading="List View">
-        <div class="card list-view" *ngFor="let data of paginationReturnData | filter:searchUser">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-1 content-card">
-                <img src="assets/img/dummy-image-users.png" alt="">
-              </div>
-              <div class="col-7 content-card">
-                <span class="name d-block">{{data.name}}</span>
-                <span class="city d-block">{{data.city}}</span>
-              </div>
-              <div class="col-4 content-card">
-                <a type="button" class="view" (click)="lgModal.show()">View Order</a>
-                <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1"
-                    role="dialog" aria-labelledby="dialog-sizes-name1">
-                  <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h4 id="dialog-sizes-name1" class="modal-title pull-left">Cart</h4>
-                        <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <div class="row">
-                          <div class="col-6">
-                            <img src="assets/img/image-phone.png" alt="" class="w-100">
-                          </div>
-                          <div class="col-6">
-                            <span class="goods d-block">{{data.cart[0].goods}}</span>
-                            <input type="text" class="form-control" value="{{data.cart[0].total}}" readonly>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="pagination-session">
-          <pagination [totalItems]="usersData" (pageChanged)="pageChanged($event)"></pagination>
-        </div>
+        <app-list [searchUser]="searchUser"></app-list>
       </tab>
       <tab heading="New Customers">
-        <div class="container">
-          <form [formGroup]="createData">
-            <div class="form-group">
-              <label>Name</label>
-              <input type="text" class="form-control" placeholder="Enter Name" formControlName="name">
-            </div>
-            <div class="form-group">
-              <label>Email</label>
-              <input type="email" class="form-control" placeholder="Enter Email" formControlName="email">
-            </div>
-            <div class="form-group">
-              <label>Age</label>
-              <input type="number" class="form-control" placeholder="Enter Age" formControlName="age">
-            </div>
-            <div class="form-group">
-              <label>City</label>
-              <input type="text" class="form-control" placeholder="Enter City" formControlName="city">
-            </div>
-          </form>
-          <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
-        </div>
+      <app-create></app-create>
       </tab>
     </tabset>
     <div class="input-group search-customer">

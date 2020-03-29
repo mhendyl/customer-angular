@@ -1,0 +1,27 @@
+@import '../../../../assets/css/variable';
+
+.outer-content{
+  .content-card{
+    .card-body{
+      .card-title{
+        margin-left: -1.25rem;
+        margin-top: -1.25rem;
+        margin-right: -1.25rem;
+        background-color: $basic-blue;
+        color: white;
+        padding: .5rem 1rem;
+        &::after{
+          content: "\f044";
+          font-family: FontAwesome;
+          float: right;
+        }
+      }
+      .image-wrapper{
+        max-width: 4rem;
+        img{
+          width: 100%;
+        }
+      }
+    }
+  }
+}
